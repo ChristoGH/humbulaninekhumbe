@@ -19,42 +19,46 @@
 rm(list = setdiff(ls(), lsf.str()))
 
 # load the caret package:
-'***YOUR CODE HERE***'
+library('caret')
 
 # Install the ellipse package
-install.packages('***YOUR CODE HERE***')
+install.packages('ellipse')
 
 # Change candidate.name to your own name in lower case and no spaces as per the directory under candidates:
-candidate.name <- 'candidate.name'
+candidate.name <- 'candidate.humbulaninekhumbe'
 
 # construct the save.dir variable for graphs using paste0:
 save.dir <- paste0('C:\\candidates\\',candidate.name,'\\graphs\\')
 
 # Set the working directory to yours:
-setwd(paste0('***YOUR CODE HERE***'))
+setwd(paste0('C:\\candidates\\',candidate.humbulaninekhumbe))
 
 # =============================================================================================
 # 1. Data acquisition
 # --------------------------------------------------------------------------------------------
 # Download and save the Iris dataset (it can be found here()):
 # Load the Iris dataset (comma delimited file and NO HEADER), call the data set iris_data: 
-  iris_data <- read.csv('***YOUR CODE HERE***')
-
+  iris_data <- read.csv('save.dir')
+attach('iris_data')
   # Set the column names in the dataset of iris_data to "Sepal.Length","Sepal.Width","Petal.Length","Petal.Width","Species".  
   # Use the colnames function:
-'***YOUR CODE HERE***'
-
-
+ "iris_data"
+ colnames(iris)
+ iris$Petal.Length
+iris$Petal.width
+iris$Sepal.width
+iris$Sepal.Length
+iris$Species
   # use the caret createDataPartition() function and create an index list of 80% 
   # of the rows into the original dataset, call the result train_index:
-  train_index <- '***YOUR CODE HERE***'
+  train_index <- 'createDataPartition(iris_data, p = 0.8, list = FALSE)'
   
   # Create the test dataset, call it test_data:
   # select 20% of the data for testing or validation. Use train_index:
-  test_data <- '***YOUR CODE HERE***'
+  test_data <- 'createDataPartition(iris_data, p = 0.2, list = FALSE)'
   
   # use the remaining 80% of data for training models, call the data set train_data:
-  train_data <- '***YOUR CODE HERE***'
+  train_data <- 'train_index'
 
 # ==========================================================================================
 # 2. Data exploration
@@ -68,7 +72,7 @@ setwd(paste0('***YOUR CODE HERE***'))
   '***YOUR CODE HERE***'
 
   # print to screen the top 20 rows of the train dataset:
-  '***YOUR CODE HERE***'
+  head(iris_data, n=20)
 
   # The Species column contains factors.
   # List the levels for the Species column.  
@@ -85,7 +89,7 @@ setwd(paste0('***YOUR CODE HERE***'))
   
   # Use the summary() function to reveal a statistical summary of all attributes
   # in train_data:
-  '***YOUR CODE HERE***'
+  'sumarry(iris_data)'
 
     
 # ================================================================================================================================================
